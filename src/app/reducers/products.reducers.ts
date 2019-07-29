@@ -1,0 +1,29 @@
+import { Action, createFeatureSelector } from "@ngrx/store";
+import { EProducts, ProductActions } from "../actions/products.actions";
+import { Iproduct } from "../models/models";
+
+export interface ProductState {
+  products: Iproduct[];
+}
+
+export const initialState: ProductState = {
+  products: []
+};
+
+export function reducer(
+  state = initialState,
+  action: ProductActions
+): ProductState {
+  switch (action.type) {
+    case EProducts.SetProducts:
+      return { ...state, products: action.payload };
+    case EProducts.GetProducts:
+      return { ...state, products: action.payload };
+    case EProducts.AddProdut:
+      return { ...state, products: action.payload };
+    default:
+      return state;
+  }
+}
+
+export const selectProducts = (state: ProductState) => state.products;
