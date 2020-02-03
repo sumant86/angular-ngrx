@@ -1,18 +1,21 @@
 import {
-  ActionReducer,
   ActionReducerMap,
   MetaReducer,
   createFeatureSelector,
   createSelector
 } from "@ngrx/store";
-import { environment } from "../../environments/environment";
-import * as fromProducts from "./products.reducers";
+
+import { environment } from "../environments/environment";
+import * as fromLoader from "./reducers/loader.reducer";
+import * as fromProducts from "./reducers/products.reducers";
 
 export interface AppState {
+  loader: fromLoader.State;
   allProducts: fromProducts.ProductState;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
+  loader: fromLoader.LoadingReducer,
   allProducts: fromProducts.reducer
 };
 
@@ -26,4 +29,10 @@ export const getAllProductState = createFeatureSelector<
 export const getAllProducts = createSelector(
   getAllProductState,
   fromProducts.selectProducts
+);
+
+export const getLoaderState = createFeatureSelector<fromLoader.State>("loader");
+export const getLoader = createSelector(
+  getLoaderState,
+  fromLoader.getLoaderStatus
 );

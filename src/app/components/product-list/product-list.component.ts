@@ -3,13 +3,13 @@ import { ProductService } from "../../services/product.service";
 import { Observable } from "rxjs";
 import { Store } from "@ngrx/store";
 import { Iproduct } from "../../models/models";
-import * as fromReducer from "../../reducers";
+import * as fromReducer from "./../../app.reducer";
 import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-product-list",
   templateUrl: "./product-list.component.html",
-  styleUrls: ["./product-list.component.css"]
+  styleUrls: ["./product-list.component.scss"]
 })
 export class ProductListComponent implements OnInit {
   constructor(

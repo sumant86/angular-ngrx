@@ -1,6 +1,7 @@
 import { Action, createFeatureSelector } from "@ngrx/store";
 import { EProducts, ProductActions } from "../actions/products.actions";
 import { Iproduct } from "../models/models";
+import * as _ from "lodash";
 
 export interface ProductState {
   products: Iproduct[];
@@ -17,10 +18,15 @@ export function reducer(
   switch (action.type) {
     case EProducts.SetProducts:
       return { ...state, products: action.payload };
-    case EProducts.GetProducts:
-      return { ...state, products: action.payload };
-    case EProducts.AddProdut:
-      return { ...state, products: action.payload };
+    // case EProducts.GetProducts:
+    //   return { ...state, products: action.payload };
+    case EProducts.RemoveProducts:
+      return {
+        ...state,
+        products: state.products.filter(
+          p => !_.includes(action.payload, p["guid"])
+        )
+      };
     default:
       return state;
   }

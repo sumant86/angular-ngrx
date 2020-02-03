@@ -3,7 +3,7 @@ import { Iproduct } from "../models/models";
 export enum EProducts {
   SetProducts = "[Products] SetProducts",
   GetProducts = "[Products] GetProducts",
-  AddProdut = "[Products] AddProduts"
+  RemoveProducts = "[Products] RemoveProducts"
 }
 
 export class SetProducts implements Action {
@@ -11,14 +11,9 @@ export class SetProducts implements Action {
   constructor(public payload: Iproduct[]) {}
 }
 
-export class GetProducts implements Action {
-  readonly type = EProducts.GetProducts;
-  constructor(public payload: Iproduct[]) {}
+export class RemoveProducts implements Action {
+  readonly type = EProducts.RemoveProducts;
+  constructor(public payload: string[]) {}
 }
 
-export class AddProduts implements Action {
-  readonly type = EProducts.AddProdut;
-  constructor(public payload: Iproduct[]) {}
-}
-
-export type ProductActions = SetProducts | GetProducts | AddProduts;
+export type ProductActions = SetProducts | RemoveProducts;
