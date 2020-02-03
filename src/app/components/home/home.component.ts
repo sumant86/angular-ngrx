@@ -6,7 +6,31 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
+  breadcrumbs: any;
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.breadcrumbs = [
+      {
+        label: "Home",
+        url: "/"
+      },
+      {
+        label: "Project",
+        url: "/project"
+      },
+      {
+        label: "Scenario",
+        url: "/project"
+      },
+      {
+        label: "Segment",
+        url: "/segment"
+      },
+      {
+        label: "Estimate",
+        url: ""
+      }
+    ];
+  }
 }

@@ -11,7 +11,13 @@ export class GenericDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.data.dialogType === "alert") {
+      setTimeout(() => {
+        this.dialogRef.close();
+      }, 2000);
+    }
+  }
   onCancelClick(): void {
     this.dialogRef.close();
   }

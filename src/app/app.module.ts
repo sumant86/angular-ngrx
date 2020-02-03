@@ -50,6 +50,6 @@ import { FooterComponent } from "./components/footer/footer.component";
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoaderComponent]
+  entryComponents: [LoaderComponent, GenericDialogComponent]
 })
 export class AppModule {}
