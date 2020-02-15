@@ -49,7 +49,6 @@ import { FooterComponent } from "./components/footer/footer.component";
     BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [LoaderComponent, GenericDialogComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
