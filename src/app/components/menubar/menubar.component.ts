@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
-import { MatDialog } from "@angular/material";
+import { MatDialog } from "@angular/material/dialog";
 import * as fromReducer from "./../../app.reducer";
 import { ShowSpinner, HideSpinner } from "./../../actions/loader.action";
 import { GenericDialogComponent } from "./../generic-dialog/generic-dialog.component";

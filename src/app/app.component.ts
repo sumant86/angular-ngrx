@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { MatDialog } from "@angular/material";
+import { MatDialog } from "@angular/material/dialog";
 import { Store, select } from "@ngrx/store";
 import * as fromReducer from "./app.reducer";
 import { ProductActions, SetProducts } from "./actions/products.actions";

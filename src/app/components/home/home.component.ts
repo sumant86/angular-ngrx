@@ -16,19 +16,15 @@ export class HomeComponent implements OnInit {
         url: "/"
       },
       {
-        label: "Project",
-        url: "/project"
+        label: "page1",
+        url: "/page1"
       },
       {
-        label: "Scenario",
-        url: "/project"
+        label: "page2",
+        url: "/page2"
       },
       {
-        label: "Segment",
-        url: "/segment"
-      },
-      {
-        label: "Estimate",
+        label: "page3",
         url: ""
       }
     ];
