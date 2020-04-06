@@ -1,0 +1,47 @@
+.sortable-table {
+  padding: 0;
+  max-height: 210px;
+  overflow-x: auto;
+  margin-top: 0px;
+}
+.mat-column-select {
+  overflow: initial;
+}
+.mat-pseudo-checkbox-checked {
+  background-color: #0066b2;
+}
+.mat-checkbox-input {
+  background-color: #0066b2;
+}
+.sortable-table table {
+  width: 100%;
+  border-collapse: separate;
+  table-layout: fixed;
+}
+.sortable-table table {
+  margin-bottom: 0px;
+}
+.sortable-table table tr th {
+  padding: 5px;
+  font-weight: bold;
+  text-transform: lowercase;
+}
+.sortable-table table tr td {
+  padding: 5px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: middle;
+}
+.sortable-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.sortable-header .mat-icon {
+  height: 20px;
+  width: 20px;
+  font-size: 20px;
+}
+
+.select-checkbox {
+  width: 40px;
+  text-align: center;
+}

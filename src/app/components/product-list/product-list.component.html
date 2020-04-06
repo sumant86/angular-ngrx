@@ -1,3 +1,98 @@
-<div *ngFor="let product of products$ | async">
+<!-- <div *ngFor="let product of products$ | async">
   {{ product.name }}
+</div> -->
+<div class="">
+  <div class="sortable-table">
+    <table>
+      <thead>
+        <tr>
+          <ng-container *ngFor="let header of colDef" class="sortable">
+            <th
+              *ngIf="header.type !== 'hidden'"
+              [ngClass]="{ 'select-checkbox': header.type === 'checkbox' }"
+            >
+              <span class="sortable-header" (click)="sortColumn(header)">
+                {{ header.name }}
+                <mat-icon
+                  fxFlex
+                  fxLayout
+                  fxLayoutAlign="flex-end"
+                  *ngIf="header.sortEnable && !header.sort"
+                  >swap_vert</mat-icon
+                >
+                <mat-icon
+                  fxFlex
+                  fxLayout
+                  fxLayoutAlign="flex-end"
+                  *ngIf="header.sortEnable && header.sort === 'asc'"
+                  >arrow_drop_up</mat-icon
+                >
+                <mat-icon
+                  fxFlex
+                  fxLayout
+                  fxLayoutAlign="flex-end"
+                  *ngIf="header.sortEnable && header.sort === 'desc'"
+                  >arrow_drop_down</mat-icon
+                >
+              </span>
+            </th>
+          </ng-container>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="sortable-table" #dynamic>
+    <table>
+      <tbody>
+        <tr *ngFor="let ec of filteredProductList">
+          <ng-container *ngFor="let header of colDef">
+            <td
+              *ngIf="header.type !== 'hidden'"
+              [ngClass]="{ 'select-checkbox': header.type === 'checkbox' }"
+            >
+              <ng-container *ngIf="header.type === 'checkbox'">
+                <mat-checkbox
+                  (change)="addToSelectedList($event, ec)"
+                  color="primary"
+                  [checked]="ec['checked']"
+                >
+                </mat-checkbox>
+              </ng-container>
+              <ng-container *ngIf="header.type === 'date'">
+                {{ ec[header.field] | date: "yyyy-MM-dd" }}
+              </ng-container>
+              <ng-container *ngIf="header.type === 'tick'">
+                <mat-icon
+                  fxFlex
+                  fxLayout
+                  fxLayoutAlign="center"
+                  *ngIf="ec[header.field]"
+                  >check</mat-icon
+                >
+                <mat-icon
+                  fxFlex
+                  fxLayout
+                  fxLayoutAlign="center"
+                  *ngIf="!ec[header.field]"
+                  >close</mat-icon
+                >
+              </ng-container>
+              <ng-container
+                *ngIf="
+                  header.type !== 'date' &&
+                  header.type !== 'checkbox' &&
+                  header.type !== 'tick'
+                "
+              >
+                <ng-container *ngIf="header.prefix">{{
+                  header.prefix
+                }}</ng-container>
+                {{ ec[header.field] }}
+              </ng-container>
+            </td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
