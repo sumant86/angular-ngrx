@@ -21,6 +21,10 @@
 .sortable-table table {
   margin-bottom: 0px;
 }
+.sortable-table table th {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
 .sortable-table table tr th {
   padding: 5px;
   font-weight: bold;
@@ -44,4 +48,70 @@
 .select-checkbox {
   width: 40px;
   text-align: center;
+}
+// .table-row-item {
+//   display: block;
+// }
+// .table-row-item:nth-child(even) {
+//   background-color: #f2f2f2;
+// }
+// .title-header {
+//   position: relative;
+// }
+// .title-desc {
+//   position: relative;
+// }
+@media (max-width: 767.98px) {
+  .sortable-table {
+    max-height: 100%;
+    overflow-x: hidden;
+  }
+  .sortable-table table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  .sortable-table table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  .sortable-table table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  .sortable-table table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .sortable-table table td:last-child {
+    border-bottom: 0;
+  }
+  .sortable-table table tr td {
+    text-align: right;
+  }
+  .select-checkbox {
+    width: auto;
+    text-align: right;
+  }
+  .mat-icon {
+    place-content: stretch flex-end !important;
+  }
 }

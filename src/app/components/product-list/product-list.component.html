@@ -8,6 +8,7 @@
         <tr>
           <ng-container *ngFor="let header of colDef" class="sortable">
             <th
+              scope="col"
               *ngIf="header.type !== 'hidden'"
               [ngClass]="{ 'select-checkbox': header.type === 'checkbox' }"
             >
@@ -47,6 +48,7 @@
         <tr *ngFor="let ec of filteredProductList">
           <ng-container *ngFor="let header of colDef">
             <td
+              [attr.data-label]="header.name"
               *ngIf="header.type !== 'hidden'"
               [ngClass]="{ 'select-checkbox': header.type === 'checkbox' }"
             >
@@ -62,19 +64,21 @@
                 {{ ec[header.field] | date: "yyyy-MM-dd" }}
               </ng-container>
               <ng-container *ngIf="header.type === 'tick'">
-                <mat-icon
-                  fxFlex
-                  fxLayout
-                  fxLayoutAlign="center"
-                  *ngIf="ec[header.field]"
-                  >check</mat-icon
-                >
-                <mat-icon
-                  fxFlex
-                  fxLayout
-                  fxLayoutAlign="center"
-                  *ngIf="!ec[header.field]"
-                  >close</mat-icon
+                <span
+                  ><mat-icon
+                    fxFlex
+                    fxLayout
+                    fxLayoutAlign="center"
+                    *ngIf="ec[header.field]"
+                    >check</mat-icon
+                  >
+                  <mat-icon
+                    fxFlex
+                    fxLayout
+                    fxLayoutAlign="center"
+                    *ngIf="!ec[header.field]"
+                    >close</mat-icon
+                  ></span
                 >
               </ng-container>
               <ng-container

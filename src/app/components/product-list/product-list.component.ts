@@ -10,7 +10,7 @@ import * as _ from "lodash";
 @Component({
   selector: "app-product-list",
   templateUrl: "./product-list.component.html",
-  styleUrls: ["./product-list.component.scss"]
+  styleUrls: ["./product-list.component.scss"],
 })
 export class ProductListComponent implements OnInit {
   constructor(
@@ -36,7 +36,7 @@ export class ProductListComponent implements OnInit {
         type: "",
         selectAll: false,
         className: "",
-        prefix: ""
+        prefix: "",
       },
       {
         field: "description",
@@ -46,7 +46,7 @@ export class ProductListComponent implements OnInit {
         type: "",
         selectAll: false,
         className: "",
-        prefix: ""
+        prefix: "",
       },
       {
         field: "available",
@@ -56,7 +56,7 @@ export class ProductListComponent implements OnInit {
         type: "tick",
         selectAll: false,
         className: "",
-        prefix: ""
+        prefix: "",
       },
       {
         field: "price",
@@ -66,7 +66,7 @@ export class ProductListComponent implements OnInit {
         type: "",
         selectAll: false,
         className: "",
-        prefix: this.currency_prefix
+        prefix: this.currency_prefix,
       },
       {
         field: "",
@@ -76,8 +76,8 @@ export class ProductListComponent implements OnInit {
         sortEnable: false,
         selectAll: false,
         className: "",
-        prefix: ""
-      }
+        prefix: "",
+      },
     ];
     this.colDefbyKey = _.keyBy(
       this.colDef.slice(0, this.colDef.length - 1),
@@ -87,7 +87,7 @@ export class ProductListComponent implements OnInit {
     this.products$ = this.store.select(fromReducer.getAllProducts);
     // console.log(this.store.select(fromReducer.getAllProducts));
     // console.log(this.store);
-    this.products$.subscribe(response => {
+    this.products$.subscribe((response) => {
       if (response.length > 0) {
         this.productList = response;
         this.filteredProductList = this.productList;
@@ -96,7 +96,7 @@ export class ProductListComponent implements OnInit {
   }
   sortColumn(column) {
     //Finding Actual column
-    _.forEach(this.colDef, coldef => {
+    _.forEach(this.colDef, (coldef) => {
       //Setting Icon for Column when clicked.
       if (coldef.field === column.field) {
         if (coldef.sort === false) {
@@ -124,7 +124,7 @@ export class ProductListComponent implements OnInit {
     }
   }
   addToSelectedList(event, selected) {
-    _.forEach(this.filteredProductList, fpl => {
+    _.forEach(this.filteredProductList, (fpl) => {
       if (fpl["id"] === selected["id"]) {
         fpl.checked = true;
       } else {
