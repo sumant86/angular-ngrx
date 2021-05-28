@@ -11,12 +11,12 @@ export class ProductService {
   private _productsURL = "./assets/data/products.json";
   constructor(private _http: HttpClient) {}
 
-  getProducts(): Observable<Iproduct[]> {
+  getProducts(): Observable<Iproduct[]|any> {
     return this._http
       .get<Iproduct[]>(this._productsURL)
-      .pipe(catchError(this.handleError));
+      .pipe(catchError(this.handleError as any));
   }
-  private handleError(err) {
-    return Observable.throw(err.message);
+  private handleError(err:any) {
+    console.log(err.message);
   }
 }
