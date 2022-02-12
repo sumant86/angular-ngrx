@@ -4,6 +4,7 @@ import { MatDialog } from "@angular/material/dialog";
 import * as fromReducer from "./../../app.reducer";
 import { ShowSpinner, HideSpinner } from "./../../actions/loader.action";
 import { GenericDialogComponent } from "./../generic-dialog/generic-dialog.component";
+import { LoaderActions } from "src/app/actions";
 @Component({
   selector: "app-menubar",
   templateUrl: "./menubar.component.html",
@@ -17,9 +18,9 @@ export class MenubarComponent implements OnInit {
 
   ngOnInit() {}
   openLoader() {
-    this.store.dispatch(new ShowSpinner());
+    this.store.dispatch(LoaderActions.ShowSpinner());
     setTimeout(() => {
-      this.store.dispatch(new HideSpinner());
+      this.store.dispatch(LoaderActions.HideSpinner());
     }, 5000);
   }
   confirmDialog() {

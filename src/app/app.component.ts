@@ -2,9 +2,9 @@ import { Component } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Store, select } from "@ngrx/store";
 import * as fromReducer from "./app.reducer";
-import { ProductActions, SetProducts } from "./actions/products.actions";
 import { ProductService } from "./services/product.service";
 import { LoaderComponent } from "./components/loader/loader.component";
+import { ProductActions } from "./actions";
 
 @Component({
   selector: "app-root",
@@ -32,10 +32,7 @@ export class AppComponent {
     });
     this._productService.getProducts().subscribe(
       response => {
-        this.store.dispatch(new SetProducts(response["products"]));
-      },
-      error => {
-        console.log("error");
+        this.store.dispatch(ProductActions.SetProducts({payload:response["products"]}));
       }
     );
   }

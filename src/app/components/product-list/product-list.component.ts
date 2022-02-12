@@ -17,14 +17,14 @@ export class ProductListComponent implements OnInit {
     private _productService: ProductService,
     private store: Store<{ Allproducts: fromReducer.AppState }>
   ) {}
-  errorMessage: string;
-  products$: Observable<Iproduct[]>;
-  colDefbyKey: {};
-  colDef: IColumnDefinition[];
-  currency_prefix: string;
-  productList: any[];
-  filteredProductList: any[];
-  selection: any[];
+  errorMessage: string | undefined;
+  products$: Observable<Iproduct[]> | undefined;
+  colDefbyKey: {} | undefined;
+  colDef: IColumnDefinition[] | undefined;
+  currency_prefix: string | undefined;
+  productList: any[] | undefined;
+  filteredProductList: any[] | undefined;
+  selection: any[] | undefined;
   ngOnInit() {
     this.currency_prefix = "$";
     this.colDef = [
@@ -94,7 +94,7 @@ export class ProductListComponent implements OnInit {
       }
     });
   }
-  sortColumn(column) {
+  sortColumn(column: any) {
     //Finding Actual column
     _.forEach(this.colDef, (coldef) => {
       //Setting Icon for Column when clicked.
@@ -123,7 +123,7 @@ export class ProductListComponent implements OnInit {
       this.filteredProductList = this.productList;
     }
   }
-  addToSelectedList(event, selected) {
+  addToSelectedList(event:any, selected:any) {
     _.forEach(this.filteredProductList, (fpl) => {
       if (fpl["id"] === selected["id"]) {
         fpl.checked = true;

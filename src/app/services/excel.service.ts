@@ -10,10 +10,10 @@ const EXCEL_EXTENSION = ".xlsx";
   providedIn: "root"
 })
 export class ExcelService {
-  workbook: XLSX.WorkBook;
+  workbook: XLSX.WorkBook | undefined;
   constructor() {}
-  public exportAsExcelFile(json: any, excelFileName: string, tabs): void {
-    var Sheets = {};
+  public exportAsExcelFile(json: any, excelFileName: string, tabs: any): void {
+    var Sheets:any = {};
     var SheetNames: any[] = [];
     _.forEach(json, (sheetList, key) => {
       let worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(sheetList);

@@ -5,6 +5,7 @@ export interface Iproduct {
   price: number;
   available: boolean;
   image: string;
+  guid:string;
 }
 
 export interface IColumnDefinition {
